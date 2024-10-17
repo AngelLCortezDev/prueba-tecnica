@@ -29,3 +29,5 @@ Tenemos un rol modificador de datos:
 Casos de uso en los que el usuario interactua con los datos, con sus respectivos verbos HTTP.
 
 ![Interacción Usuario-Modelo](/requirements/img/interaccion-usuario-modelo.jpg)
+
+AUTH -> ... se refiere a la necesidad de autenticación para ejecutar la función.
