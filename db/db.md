@@ -16,7 +16,7 @@ pgAdmin
 
 script tablas.sql de las tablas creadas en pgAdmin
 
-[GCP - tablas](/db/tablas.sql)
+[Script tablas.sql](/db/tablas.sql)
 
 GCP
 
