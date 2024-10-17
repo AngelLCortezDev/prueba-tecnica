@@ -22,5 +22,5 @@ Tenemos un rol modificador de datos:
 
 ##Diseño del modelo de datos
 
-![Modelo de datos](/img/modelo-datos.jpg)
+![Modelo de datos](/requirements/img/modelo-datos.jpg)
 
