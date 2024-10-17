@@ -1,10 +1,10 @@
 # Creación de base de datos
 
-## Creación de cuenta, instancia y base de datos PostgreSQL en GPC
+## Creación de cuenta, instancia y base de datos PostgreSQL en GCP
 
-![GPC - Panel](/db/img/gpc.jpg)
+![GCP - Panel](/db/img/gcp.jpg)
 
-## Conexión de pgAdmin a GPC
+## Conexión de pgAdmin a GCP
 
 ![pgAdmin - Connection](/db/img/pgAdmin-connection.jpg)
 
@@ -14,7 +14,7 @@ pgAdmin
 
 ![pgAdmin - tablas](/db/img/pgAdmin-tablas.png)
 
-GPC
+GCP
 
-![GPC - tablas](/db/img/gpc-tablas.jpg)
+![GCP - tablas](/db/img/gcp-tablas.jpg)
 
