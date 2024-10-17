@@ -1,3 +1,6 @@
+##Analisis de requerimientos - Prueba Tecnica
+
+###Analisis del modelo de datos
 Tenemos una aplicación web de denuncias. Una denuncia está dividida en 3 partes:
 
 	-DatosDenuncia - Empresa/Pais/Estado/No. Centro
@@ -16,3 +19,7 @@ Tenemos dos roles visualizadores de datos, que previamente deben ser autenticado
 Tenemos un rol modificador de datos:
 
 	-Abogado: Añadir comentarios, cambiar estatus de denuncia.
+
+###Diseño del modelo de datos
+
+
