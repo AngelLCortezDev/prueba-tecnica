@@ -24,3 +24,8 @@ Tenemos un rol modificador de datos:
 
 ![Modelo de datos](/requirements/img/modelo-datos.jpg)
 
+## Interacción usuario -> datos
+
+Casos de uso en los que el usuario interactua con los datos, con sus respectivos verbos HTTP.
+
+![Interacción Usuario-Modelo](/requirements/img/interaccion-usuario-modelo.jpg)
