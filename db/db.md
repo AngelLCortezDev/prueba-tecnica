@@ -9,3 +9,12 @@
 ![pgAdmin - Connection](/db/img/pgAdmin-connection.jpg)
 
 ## Creación de tablas en pgAdmin
+
+pgAdmin
+
+![pgAdmin - tablas](/db/img/pgAdmin-tablas.png)
+
+GPC
+
+![GPC - tablas](/db/img/gpc-tablas.jpg)
+
