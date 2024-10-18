@@ -23,6 +23,7 @@ export const getEstado = async (req, res) => {
         }
 
         res.json(estado);
+        
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
