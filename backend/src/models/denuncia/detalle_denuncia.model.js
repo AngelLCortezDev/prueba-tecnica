@@ -25,10 +25,3 @@ export const Detalle_Denuncia = sequelize.define('detalles_denuncias',{
 },{
     timestamps: false
 });
-
-//Relaciones
-
-//Una denuncia solo tiene un detalle de denucia
-Detalle_Denuncia.hasOne(Denuncia,{
-    foreignKey: 'detalles_denuncia'
-});

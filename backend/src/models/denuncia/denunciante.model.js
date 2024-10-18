@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../database/database.js";
-import { Denuncia } from "./denuncia.model.js";
 
 //tabla denunciantes
 
@@ -25,11 +24,3 @@ export const Denunciante = sequelize.define('denunciantes',{
 },{
     timestamps:false
 });
-
-//Relaciones
-
-//Un denunciante puede hacer muchas denuncias
-Denunciante.hasMany(Denuncia,{
-    foreignKey:'denunciante',
-    sourceKey: 'id_denunciante'
-})

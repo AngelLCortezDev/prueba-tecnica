@@ -12,6 +12,7 @@ import './models/denuncia/denunciante.model.js';
 import './models/denuncia/detalle_denuncia.model.js';
 import './models/denuncia/mensaje.model.js';
 import './models/usuarios/admin.model.js';
+import './models/denuncia/relations/denuncia.relations.js';
 
 async function main(){
     try {
