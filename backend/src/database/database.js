@@ -1,11 +1,11 @@
 import { Sequelize } from "sequelize";
 
 export const sequelize = new Sequelize(
-    'pruebaPT',
-    'postgres',
-    'AngelLCortezDev',
+    'bdLineaDenuncias',
+    'linea-denunciasAdmin',
+    'AngelLCortezDev.prueba-tecnica',
     {
-        host: 'localhost',
+        host: '35.225.97.224',
         dialect: 'postgres'
     }
 );

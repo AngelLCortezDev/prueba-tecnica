@@ -15,7 +15,7 @@ export const Detalle_Denuncia = sequelize.define('detalles_denuncias',{
         allowNull: false
     },
     fecha:{
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false
     },
     status:{
