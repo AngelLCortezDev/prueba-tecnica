@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../database/database.js";
+import {Datos_Denuncia} from "../denuncia/datos_denuncia.model.js";
 
 //tabla empresas
 
@@ -15,4 +16,12 @@ export const Empresa = sequelize.define('empresas',{
     }
 },{
     timestamps: false
+});
+
+//Relaciones
+
+//Una empresa puede tener muchas denuncias
+Empresa.hasMany(Datos_Denuncia,{
+    foreignKey: 'empresa',
+    sourceKey: 'id_empresa'
 });

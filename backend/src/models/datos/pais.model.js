@@ -1,6 +1,7 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../database/database.js";
 import { Estado } from "./estado.model.js";
+import { Datos_Denuncia } from "../denuncia/datos_denuncia.model.js"
 
 //tabla paises
 
@@ -18,6 +19,7 @@ export const Pais = sequelize.define('paises',{
 });
 
 //Relaciones
+
 //Un país tiene muchos estados
 Pais.hasMany(Estado, {
     foreignKey: 'pais',
@@ -28,3 +30,9 @@ Estado.belongsTo(Pais,{
     foreignKey: 'pais',
     targetKey: 'id_pais'
 });
+
+//Un país tiene muchas denuncias
+Pais.hasMany(Datos_Denuncia,{
+    foreignKey: 'pais',
+    sourceKey: 'id_pais'
+})
