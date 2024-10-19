@@ -1,0 +1,25 @@
+.navbar-fixed{
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    padding: 0 20px;
+    top: 0;
+    right: 0;
+}
+
+.navbar-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-logo{
+    display: flex;
+    align-items: center;
+
+}
+
+.logo{
+    width: 20%;
+    padding: 15px;
+}

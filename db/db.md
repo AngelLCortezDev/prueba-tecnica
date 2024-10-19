@@ -14,10 +14,6 @@ pgAdmin
 
 ![pgAdmin - tablas](/db/img/pgAdmin-tablas.png)
 
-script tablas.sql de las tablas creadas en pgAdmin
-
-[GCP - tablas](/db/tablas.sql)
-
 GCP
 
 ![GCP - tablas](/db/img/gcp-tablas.jpg)

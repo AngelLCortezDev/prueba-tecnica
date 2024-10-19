@@ -1,0 +1,18 @@
+@import "primeng/resources/themes/coltrane-prime-theme/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+body{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #EDF2F7;
+}
+
+.container{
+    background-color: white;
+    border-radius: 10px;
+}

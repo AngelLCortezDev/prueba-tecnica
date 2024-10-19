@@ -1,0 +1,38 @@
+<div class="registrar-denuncia">
+    <h3>Registrar denuncia</h3>
+    <hr>
+    <div class="form-denuncia">
+        <h4>Datos de la denuncia</h4>
+        <label for="empresa">Empresa</label>
+        <p-dropdown 
+            id="empresa" 
+            [options]="opcionesEmpresa" 
+            [(ngModel)]="seleccionEmpresa" 
+            (onChange)="onSelectEmpresa($event.value)" 
+            optionLabel="label" 
+            placeholder="Empresa">
+        </p-dropdown>
+
+        <label for="dropdown2">Segunda Categoría:</label>
+        <p-dropdown 
+            id="dropdown2" 
+            [options]="opcionesSegundaCateg" 
+            [(ngModel)]="seleccionSegundaCateg" 
+            (onChange)="onSelectSegundaCateg($event.value)" 
+            [disabled]="!seleccionPrimeraCateg"
+            optionLabel="label" 
+            placeholder="Selecciona una opción">
+        </p-dropdown>
+
+        <label for="dropdown3">Tercera Categoría:</label>
+        <p-dropdown 
+            id="dropdown3" 
+            [options]="opcionesTerceraCateg" 
+            [(ngModel)]="seleccionTerceraCateg" 
+            [disabled]="!seleccionSegundaCateg"
+            optionLabel="label" 
+            placeholder="Selecciona una opción">
+        </p-dropdown>
+        
+    </div>
+</div>
