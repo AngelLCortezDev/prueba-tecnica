@@ -3,35 +3,30 @@
     <hr>
     <div class="form-denuncia">
         <h4>Datos de la denuncia</h4>
-        <label for="empresa">Empresa</label>
         <p-dropdown 
             id="empresa" 
             [options]="opcionesEmpresa" 
-            [(ngModel)]="seleccionEmpresa" 
-            (onChange)="onSelectEmpresa($event.value)" 
+            [(ngModel)]="seleccionEmpresa"
+            (onChange)="onSelectEmpresa($event.value)"
             optionLabel="label" 
             placeholder="Empresa">
         </p-dropdown>
-
-        <label for="dropdown2">Segunda Categoría:</label>
         <p-dropdown 
-            id="dropdown2" 
-            [options]="opcionesSegundaCateg" 
-            [(ngModel)]="seleccionSegundaCateg" 
-            (onChange)="onSelectSegundaCateg($event.value)" 
-            [disabled]="!seleccionPrimeraCateg"
+            id="pais" 
+            [options]="opcionesPais" 
+            [(ngModel)]="seleccionPais"
+            (onChange)="onSelectPais($event.value)"
+            [disabled]="!seleccionEmpresa"
             optionLabel="label" 
-            placeholder="Selecciona una opción">
+            placeholder="Pais">
         </p-dropdown>
-
-        <label for="dropdown3">Tercera Categoría:</label>
         <p-dropdown 
-            id="dropdown3" 
-            [options]="opcionesTerceraCateg" 
-            [(ngModel)]="seleccionTerceraCateg" 
-            [disabled]="!seleccionSegundaCateg"
+            id="estado" 
+            [options]="opcionesEstado" 
+            [(ngModel)]="seleccionEstado"
+            [disabled]="!seleccionPais"
             optionLabel="label" 
-            placeholder="Selecciona una opción">
+            placeholder="Estado">
         </p-dropdown>
         
     </div>
