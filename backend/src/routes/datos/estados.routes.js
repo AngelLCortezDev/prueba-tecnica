@@ -4,6 +4,6 @@ import { getEstados, getEstado } from "../../controllers/datos/estados.controlle
 const router = Router();
 
 router.get('/estados', getEstados);
-router.get('/estados/:id', getEstado)
+router.get('/estados/:id', getEstado);
 
 export default router;

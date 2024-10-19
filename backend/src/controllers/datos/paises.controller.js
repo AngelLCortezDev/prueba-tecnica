@@ -1,4 +1,5 @@
 import {Pais} from "../../models/datos/pais.model.js";
+import {Estado} from "../../models/datos/estado.model.js";
 
 export const getPaises = async (req, res) => {
     try{
@@ -24,5 +25,25 @@ export const getPais = async (req, res) => {
         res.json(pais);
     }catch(error){
         return res.status(500).json({ message: error.message });
+    }
+}
+
+export const getPais_Estados = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const estados= await Estado.findAll({
+            where:{
+                pais: id
+            }
+        });
+
+        if(!estados){
+            return res.status(404).json({message: "No se encontraron mensajes"});
+        }
+        
+        res.json(estados);
+
+    } catch (error) {
+        return res.status(500).json({message:error.message});
     }
 }
