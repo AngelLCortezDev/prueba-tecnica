@@ -2,9 +2,7 @@ import { Component} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { DatosDenunciaService } from '../../core/services/datos-denuncia.service';
-import { Empresa } from '../../core/interfaces/datos/empresa';
-import { Pais } from '../../core/interfaces/datos/pais';
-import { Estado } from '../../core/interfaces/datos/estado';
+import { DD_Item } from '../../core/interfaces/dropdown-item';
 
 @Component({
   selector: 'app-registro',
@@ -18,9 +16,9 @@ export class RegistroComponent {
   opcionesPais: any[] = [];
   opcionesEstado: any[] = [];
 
-  seleccionEmpresa: any[] = [];
-  seleccionPais: any[];
-  seleccionEstado: any[] = [];
+  seleccionEmpresa = 0;
+  seleccionPais = 0;
+  seleccionEstado = 0;
 
   constructor(private datos_denunciaService: DatosDenunciaService) {}
 
@@ -47,17 +45,19 @@ export class RegistroComponent {
     });
   }
 
-  cargarOpcionesEstado() {
-
+  cargarOpcionesEstado(pais: number) {
+    this.datos_denunciaService.obtenerOpcionesEstado(pais).subscribe((data) => {
+      this.opcionesEstado = data.map((estado) => ({
+        label: estado.nombre,
+        value: estado.id_estado
+      }));
+    });
   }
 
-  onSelectPais() {
-    console.log(this.seleccionEmpresa);
-    console.log(this.seleccionPais);
+  onSelectPais(pais: DD_Item) {
+    this.cargarOpcionesEstado(pais['value']);
   }
 
-  onSelectEstado(estado: number) {
-  }
 
 
 }

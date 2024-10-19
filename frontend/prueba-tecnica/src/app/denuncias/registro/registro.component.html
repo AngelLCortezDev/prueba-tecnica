@@ -1,33 +1,32 @@
 <div class="registrar-denuncia">
-    <h3>Registrar denuncia</h3>
-    <hr>
+    <h2>Registrar denuncia</h2>
     <div class="form-denuncia">
         <h4>Datos de la denuncia</h4>
-        <p-dropdown 
-            id="empresa" 
-            [options]="opcionesEmpresa" 
-            [(ngModel)]="seleccionEmpresa"
-            (onChange)="onSelectEmpresa($event.value)"
-            optionLabel="label" 
-            placeholder="Empresa">
-        </p-dropdown>
-        <p-dropdown 
-            id="pais" 
-            [options]="opcionesPais" 
-            [(ngModel)]="seleccionPais"
-            (onChange)="onSelectPais($event.value)"
-            [disabled]="!seleccionEmpresa"
-            optionLabel="label" 
-            placeholder="Pais">
-        </p-dropdown>
-        <p-dropdown 
-            id="estado" 
-            [options]="opcionesEstado" 
-            [(ngModel)]="seleccionEstado"
-            [disabled]="!seleccionPais"
-            optionLabel="label" 
-            placeholder="Estado">
-        </p-dropdown>
-        
+        <div class="denuncia-datos">
+            <p-dropdown 
+                id="empresa" 
+                [options]="opcionesEmpresa" 
+                [(ngModel)]="seleccionEmpresa"
+                optionLabel="label" 
+                placeholder="Empresa">
+            </p-dropdown>
+            <p-dropdown 
+                id="pais" 
+                [options]="opcionesPais" 
+                [(ngModel)]="seleccionPais"
+                (onChange)="onSelectPais($event.value)"
+                [disabled]="!seleccionEmpresa"
+                optionLabel="label" 
+                placeholder="Pais">
+            </p-dropdown>
+            <p-dropdown 
+                id="estado" 
+                [options]="opcionesEstado" 
+                [(ngModel)]="seleccionEstado"
+                [disabled]="!seleccionPais"
+                optionLabel="label" 
+                placeholder="Estado">
+            </p-dropdown>
+        </div>
     </div>
 </div>
