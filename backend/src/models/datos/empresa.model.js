@@ -19,9 +19,12 @@ export const Empresa = sequelize.define('empresas',{
 });
 
 //Relaciones
-
 //Una empresa puede tener muchas denuncias
 Empresa.hasMany(Datos_Denuncia,{
     foreignKey: 'empresa',
-    sourceKey: 'id_empresa'
+});
+//Una denuncia tiene una empresa
+Datos_Denuncia.belongsTo(Empresa,{
+    foreignKey: 'empresa',
+    as: 'fk_empresa'
 });

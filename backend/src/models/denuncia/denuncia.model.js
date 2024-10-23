@@ -11,6 +11,17 @@ export const Denuncia = sequelize.define('denuncias',{
         type:DataTypes.STRING(60),
         allowNull:false
     }
+    //datos_denuncia: {
+    //    type: DataTypes.INTEGER
+    //},
+    //denunciante: {
+    //    type: DataTypes.INTEGER
+    //},
+    //detalles_denuncia: {
+    //    type: DataTypes.INTEGER
+    //}
+
+
 },{
     timestamps:false
 });

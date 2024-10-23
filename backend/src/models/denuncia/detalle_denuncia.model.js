@@ -25,3 +25,14 @@ export const Detalle_Denuncia = sequelize.define('detalles_denuncias',{
 },{
     timestamps: false
 });
+
+//Relaciones
+//Una denuncia tiene un conjunto de detalles de denuncia
+Detalle_Denuncia.hasOne(Denuncia,{
+    foreignKey: 'detalle_denuncia'
+});
+//Un detalle denuncia pertenece a una denuncia\
+Denuncia.belongsTo(Detalle_Denuncia,{
+    foreignKey: 'detalle_denuncia',
+    as: 'fk_detalle_denuncia'
+});

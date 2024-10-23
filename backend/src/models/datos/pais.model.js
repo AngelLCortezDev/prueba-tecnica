@@ -19,7 +19,6 @@ export const Pais = sequelize.define('paises',{
 });
 
 //Relaciones
-
 //Un país tiene muchos estados
 Pais.hasMany(Estado, {
     foreignKey: 'pais',
@@ -28,11 +27,17 @@ Pais.hasMany(Estado, {
 //Un estado pertenese a un solo país
 Estado.belongsTo(Pais,{
     foreignKey: 'pais',
-    targetKey: 'id_pais'
+    targetKey: 'id_pais',
+    as: 'fk_id_pais'
 });
 
 //Un país tiene muchas denuncias
 Pais.hasMany(Datos_Denuncia,{
+    foreignKey: 'pais'
+
+});
+//Una denuncia tiene un pais
+Datos_Denuncia.belongsTo(Pais, {
     foreignKey: 'pais',
-    sourceKey: 'id_pais'
-})
+    as: 'fk_id_pais'
+});

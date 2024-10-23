@@ -19,9 +19,12 @@ export const Mensaje = sequelize.define('mensajes',{
 });
 
 //Relaciones
-
+//Una denuncia tiene muchos mensajes
+Detalle_Denuncia.hasMany(Mensaje,{
+    foreignKey: 'denuncia'
+})
 //Un mensaje pertenece a una denuncia
 Mensaje.belongsTo(Detalle_Denuncia,{
     foreignKey: 'denuncia',
-    sourceKey: 'id_denuncia'
+    as: 'fk_detalle_denuncia'
 });
