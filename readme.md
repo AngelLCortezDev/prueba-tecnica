@@ -6,7 +6,7 @@ Interfaz de usuario diseñada con los elementos UI de PrimeNG y su integración 
 ![Panel denuncias](./img/panel-denuncias.jpg)
 
 ## Backend
-Api Rest codificada en Javascript haciendo uso del entorno de ejecución Node.js, la librería Express y el ORM Sequelize para la manipulación y el acceso de datos.
+Api Rest codificada en Javascript haciendo uso del entorno de ejecución Node.js, la librería Express y el ORM Sequelize para la manipulación y el acceso de datos, además de la generación de tokens JWT y la verificación de contraseñas encriptadas con bcrypt.
 
 ## Base de datos
 Instancia de base de datos PostgreSQL creada en un servicio Cloud SQL de Google Cloud Platform para su posterior consumo y manipulación.
