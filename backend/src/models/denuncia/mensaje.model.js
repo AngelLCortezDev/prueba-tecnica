@@ -26,5 +26,5 @@ Detalle_Denuncia.hasMany(Mensaje,{
 //Un mensaje pertenece a una denuncia
 Mensaje.belongsTo(Detalle_Denuncia,{
     foreignKey: 'denuncia',
-    as: 'fk_detalle_denuncia'
+    as: 'fk_denuncia'
 });

@@ -23,17 +23,12 @@ export const createDenuncia = async (req,res) => {
 export const loginDenuncia = async (req,res) => {
     try{
         const authDenuncia = await autenticar_folio(req.body);
-        console.log(authDenuncia);
         if(authDenuncia){
-            res.json(authDenuncia)
+            res.header('auth-token' ,authDenuncia[1]).json(authDenuncia[0]);
         }else{
             return res.status(401).json({message:"Credenciales invalidas."})
         }
     }catch(error){
         return res.status(500).json({message:error});
     }
-}
-
-export const getDenuncias = async (req,res) => {
-    
 }

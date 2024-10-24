@@ -40,3 +40,19 @@ export const getDetalle_Denuncia_Mensajes = async (req, res) => {
         return res.status(500).json({message:error.message});
     }
 }
+
+export const putDetalle_Denuncia = async (req , res) => {
+    try{
+        const { id } = req.params;
+        const { status } = req.body;
+        
+        const detalle_denuncia = await Detalle_Denuncia.findByPk(id);
+        detalle_denuncia.status = status;
+        detalle_denuncia.save();
+
+        res.json(detalle_denuncia);
+
+    }catch(error){
+        return res.status(500).json({message: error.message});
+    }
+}

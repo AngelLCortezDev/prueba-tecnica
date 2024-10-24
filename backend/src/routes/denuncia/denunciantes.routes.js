@@ -3,6 +3,6 @@ import { getDenunciante } from "../../controllers/denuncia/denunciantes.controll
 
 const router = Router();
 
-router.get('/denunciantes/:id', getDenunciante);
+router.get('/denuncias/denunciantes/:id', getDenunciante);
 
 export default router;

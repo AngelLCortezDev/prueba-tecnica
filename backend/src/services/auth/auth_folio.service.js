@@ -1,5 +1,8 @@
 import { Denuncia } from "../../models/denuncia/denuncia.model.js";
 import { compare } from 'bcrypt';
+import jwt from 'jsonwebtoken';   const { sign, verify } = jwt;
+import { readFileSync } from 'fs';
+import path from "path";
 
 
 export const autenticar_folio = async (denuncia) => {
@@ -17,12 +20,14 @@ export const autenticar_folio = async (denuncia) => {
             return null;
         }else{
             //Hacer la comparación de contraseña guardada y la ingresada
-            console.log(storedDenuncia['password']);
-            console.log(password);
-            const resultado = await compare(password, storedDenuncia['password']);
-            console.log(resultado);
+            const resultado = await compare(password, storedDenuncia.password);
             if (resultado){
-                return storedDenuncia;
+                //Generar token para autorizar a futuras peticiones
+                const clavePrivada = readFileSync(path.join(import.meta.dirname,'keys/folio/private.key'), 'utf8');
+                const token = sign({
+                    folio: storedDenuncia.folio
+                },clavePrivada,{ algorithm: 'RS256' });
+                return [storedDenuncia,token];
             }else{
                 return null;
             }
@@ -31,9 +36,5 @@ export const autenticar_folio = async (denuncia) => {
     } catch (error) {
         return error;
     }
-}
-
-export const autorizar_folio = async (token) => {
-    
 }
 

@@ -11,4 +11,6 @@ export const Administrador = sequelize.define('administradores',{
         type:DataTypes.STRING(60),
         allowNull:false
     }   
+},{
+    timestamps:false
 });

@@ -8,6 +8,7 @@ import datos_denunciasRoutes from './routes/denuncia/datos_denuncias.routes.js';
 import denunciantesRoutes from './routes/denuncia/denunciantes.routes.js';
 import detalle_denunciasRoutes from './routes/denuncia/detalles_denuncias.routes.js';
 import mensajesRoutes from './routes/denuncia/mensajes.routes.js';
+import administradorRoutes from './routes/usuarios/administradores.routes.js';
 
 const app = express();
 
@@ -24,5 +25,6 @@ app.use(datos_denunciasRoutes);
 app.use(denunciantesRoutes);
 app.use(detalle_denunciasRoutes);
 app.use(mensajesRoutes);
+app.use(administradorRoutes);
 
 export default app;
