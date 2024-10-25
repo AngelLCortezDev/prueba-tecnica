@@ -1,32 +1,85 @@
 <div class="registrar-denuncia">
     <h2>Registrar denuncia</h2>
     <div class="form-denuncia">
-        <h4>Datos de la denuncia</h4>
-        <div class="denuncia-datos">
-            <p-dropdown 
-                id="empresa" 
-                [options]="opcionesEmpresa" 
-                [(ngModel)]="seleccionEmpresa"
-                optionLabel="label" 
-                placeholder="Empresa">
-            </p-dropdown>
-            <p-dropdown 
-                id="pais" 
-                [options]="opcionesPais" 
-                [(ngModel)]="seleccionPais"
-                (onChange)="onSelectPais($event.value)"
-                [disabled]="!seleccionEmpresa"
-                optionLabel="label" 
-                placeholder="Pais">
-            </p-dropdown>
-            <p-dropdown 
-                id="estado" 
-                [options]="opcionesEstado" 
-                [(ngModel)]="seleccionEstado"
-                [disabled]="!seleccionPais"
-                optionLabel="label" 
-                placeholder="Estado">
-            </p-dropdown>
-        </div>
+        <form [formGroup]="formularioDenuncia" (ngSubmit)="onSubmit()">
+            <p-scrollPanel [style]="{ width: '100%', height: '55vh' }">
+                <h4>Datos de la denuncia</h4>
+                <div class="denuncia-datos" formGroupName="datos_denuncia">
+                    <p-dropdown 
+                        id="empresa" 
+                        [options]="opcionesEmpresa" 
+                        formControlName="empresa"
+                        optionLabel="label" 
+                        placeholder="Empresa">
+                    </p-dropdown>
+                    <p-dropdown 
+                        id="pais" 
+                        [options]="opcionesPais" 
+                        formControlName="pais"
+                        (onChange)="onSelectPais($event.value)"
+                        optionLabel="label" 
+                        placeholder="Pais">
+                    </p-dropdown>
+                    <p-dropdown 
+                        id="estado" 
+                        [options]="opcionesEstado" 
+                        formControlName="estado"
+                        optionLabel="label" 
+                        placeholder="Estado">
+                    </p-dropdown>
+                    <input type="number" pInputText formControlName="num_centro" placeholder="No.Centro" />
+                </div>
+                <h4>Contacto</h4>
+                <div class="denunciante" formGroupName="denunciante">
+                    <p-checkbox 
+                        (onChange)="onCheckboxAnonimoChange($event)"
+                        label="Anonimo" 
+                        binary="true">
+                    </p-checkbox>
+                    <div *ngIf="(!anonimoIsChecked)">
+                        <input type="text" pInputText formControlName="nombre" placeholder="Nombre" />
+                        <input type="text" pInputText formControlName="correo" placeholder="Correo" />
+                        <input type="text" pInputText formControlName="telefono" placeholder="Telefono" />
+                    </div>
+                </div>
+                <h4>Detalle de la denuncia</h4>
+                <div class="detalle-denuncia" formGroupName="detalle_denuncia">
+                    <p-floatLabel>
+                        <p-calendar 
+                            formControlName="fecha"
+                            inputId="fecha" />
+                        <label for="fecha">Fecha</label>
+                    </p-floatLabel>
+                    <label for="detalle-denuncia">Descripción</label>
+                    <textarea 
+                    name="detalle-denuncia"
+                    id="detalle-denuncia"
+                    rows="15"
+                    cols="60"
+                    pInputTextarea
+                    formControlName="descripcion"
+                    [autoResize]="true">
+                    </textarea>
+                </div>
+                <input type="password" pInputText formControlName="password" placeholder="Contraseña" />
+                <small>Longitud minima 8 caracteres</small>
+            </p-scrollPanel>
+            <p-button type="submit" label="Enviar denuncia" icon="pi pi-check" />
+        </form>
     </div>
 </div>
+<p-dialog header="Denuncia realizada" [(visible)]="displaySuccess" [modal]="true" [closable]="true">
+    <div>
+      <i class="pi pi-check-circle" style="font-size: 2rem; color: green;"></i>
+      <h3>¡Tu denuncia ha sido capturada correctamente!</h3>
+      <p-button label="Aceptar" (onClick)="irAInicio()" icon="pi pi-check" />
+    </div>
+  </p-dialog>
+
+  <p-dialog header="Formulario imcompleto" [(visible)]="displayError" [modal]="true" [closable]="true">
+    <div>
+        <i class="pi pi-times" style="font-size: 2rem; color: red;"></i>
+        <h3>¡Rellena el formulario correctamente!</h3>
+    </div>
+  </p-dialog>
+

@@ -5,8 +5,8 @@ import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
-import { NgIf } from '@angular/common';
-import { Route } from '@angular/router';
+import { Router } from '@angular/router';
+import { DenunciaService } from '../../core/services/denuncia/denuncia.service';
 
 @Component({
   selector: 'app-panel',
@@ -25,16 +25,27 @@ import { Route } from '@angular/router';
 export class PanelComponent {
   folio: string = '';
   password: string = '';
+  respuesta: any;
+
+  constructor(private router: Router, private denuncia: DenunciaService){
+  }
 
   seguimiento() {
-    console.log(this.folio);
-    console.log(this.password);
-    this.folio ='';
-    this.password='';
+    this.denuncia.obtenerDenuncia({
+      folio: this.folio,
+      password: this.password
+    }).subscribe((data) => {
+      this.respuesta = data
+    });
+    const id = this.respuesta.detalle_denuncia;
+    const folio = this.folio;
+    this.router.navigate(['/denuncias/seguimiento'],{
+      queryParams: { id, folio }
+    });
   }
 
   registro() {
-    
+    this.router.navigate(['/denuncias']);
   }
 
 }

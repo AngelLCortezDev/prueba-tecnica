@@ -15,9 +15,9 @@ export const integrar_denuncia = async function (denuncia){
     const integratedDenuncia = {
         folio: folio,
         password: password,
-        datos_denuncia: 1,
-        denunciante: 1,
-        detalle_denuncia: 1
+        datos_denuncia: datos_denuncia.id_datos_denuncia,
+        denunciante: denunciante.id_denunciante,
+        detalle_denuncia: detalle_denuncia.id_detalle_denuncia
     }
 
     //Subir las partes a sus respectivas tablas
@@ -43,13 +43,12 @@ export const integrar_denuncia = async function (denuncia){
         });
     }
     //Se relaciona la sucursal a la denuncia
-    //integratedDenuncia['datos_denuncia'] = res_datos_denuncia['id_datos_denuncia'];
-    console.log(res_datos_denuncia['id_datos_denuncia']);
+    integratedDenuncia['datos_denuncia'] = res_datos_denuncia['id_datos_denuncia'];
 
     //denunciante
     //Verificar si el cliente es anonimo o ya ha realizado otra denuncia
     //Si no es anonimo, verificar que exista o agregar uno nuevo y relacionarlos
-    if(!(denunciante == 1)){
+    if(!(denunciante.id_denunciante == 1)){
         //Buscamos si existe el denunciante
         let res_denunciante = await Denunciante.findOne({
             where:{
@@ -69,8 +68,9 @@ export const integrar_denuncia = async function (denuncia){
         }
 
         //Se relaciona el denunciante a la denuncia
-        //integratedDenuncia['denunciante'] = res_denunciante['id_denunciante'];
-        console.log(res_denunciante['id_denunciante']);
+        integratedDenuncia['denunciante'] = res_denunciante['id_denunciante'];
+    }else{
+
     }
 
     //detalle_denuncia
@@ -81,11 +81,9 @@ export const integrar_denuncia = async function (denuncia){
         status: 1
     });
 
-    //integratedDenuncia['detalle_denuncia'] = res_detalle_denuncia['id_denuncia'];
-    console.log(res_detalle_denuncia['id_denuncia']);
+    integratedDenuncia['detalle_denuncia'] = res_detalle_denuncia['id_detalle_denuncia'];
 
     //Devolvemos el encabezado de la denuncia ya relacionada a sus componentes
-    console.log(integratedDenuncia);
     return integratedDenuncia;
 
 }

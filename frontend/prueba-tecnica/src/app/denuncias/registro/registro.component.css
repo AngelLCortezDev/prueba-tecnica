@@ -2,25 +2,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     width: 40vw;
-    height: 80vh;
+    height: 75vh;
+}
+
+.registrar-denuncia h2{
+    height: 1px;
 }
 
 .form-denuncia{
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
+    justify-content: space-around;
     width: 100%;
-    padding: 0 25px;
+    height: 100%;
+    padding: 0 35px;
 }
 
 .denuncia-datos{
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    width: 100%;
-    
-}
-
-.denuncia-datos p-dropdown{
-    padding: 10px 0; 
+    width: 35vw;
+    height: 30vh; 
 }

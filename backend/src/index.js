@@ -8,6 +8,7 @@ import './models/denuncia/denuncia.model.js';
 import './models/denuncia/datos_denuncia.model.js';
 import './models/denuncia/denunciante.model.js';
 import './models/denuncia/detalle_denuncia.model.js';
+import './models/usuarios/admin.model.js';
 
 
 async function main(){
